@@ -1,9 +1,9 @@
-UNT Talon3 HPC setup for retraining with tensorflow object detection api
-========================================================================
+# UNT Talon3 HPC setup for retraining with tensorflow object detection api
+
 Ian Zurutuza - Aug 22, 2019
 
-Load tensorflow-gpu
--------------------
+## Load tensorflow-gpu
+
 `module load tensorflow/1.10.1-gpu`
 
 now check that all necessary modules were loaded
@@ -18,12 +18,10 @@ should output:
     5) cudnn/7.0/cuda90   
     6) tensorflow/1.10.1-gpu
 
-Clone this repository
----------------------
+## Clone this repository
 `git clone https://github.com/ianzur/obj-detect.git`
 
-Set up virtual environment
---------------------------
+## Set up virtual environment
 To loads the current packages from the system environment use `--system-site-packages`
 
 `python3 -m venv --system-site-packages venvs/obj_detect`
@@ -34,8 +32,7 @@ To loads the current packages from the system environment use `--system-site-pac
 `pip freeze | diff -s obj-detect/venv_requirements.txt -`
 
 
-Set up tensorflow object detection api
---------------------------------------
+## Set up tensorflow object detection api
 Clone tensorflow models
 
 `git clone https://github.com/tensorflow/models.git`
