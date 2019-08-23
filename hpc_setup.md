@@ -1,9 +1,11 @@
 # UNT Talon3 HPC setup for retraining with tensorflow object detection api
 
+This guide describes how to set tensorflow object detection api on UNT HPC
+
 Ian Zurutuza - Aug 22, 2019
 
-## Load tensorflow-gpu
 
+## Load tensorflow-gpu
 `module load tensorflow/1.10.1-gpu`
 
 now check that all necessary modules were loaded
@@ -46,7 +48,6 @@ cp -r pycocotools <path_to_tensorflow>/models/research/
 ```
 
 Change directorys
-
 `cd <path/to/tensorflow>/models/research`
 
 "Install" protoc
@@ -54,9 +55,9 @@ Change directorys
 wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
 unzip protobuf.zip
 ```
-Then compile .proto files
 
+Then compile .proto files
 `./bin/protoc object_detection/protos/*.proto --python_out=.`
 
-:tada::tada::tada: You did it!! :tada::tada::tada:
+:tada::tada::tada: **You did it!!** :tada::tada::tada:
 
