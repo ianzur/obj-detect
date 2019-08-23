@@ -1,66 +1,65 @@
 UNT Talon3 HPC setup for retraining with tensorflow object detection api
-------------------------------------------------------------------------
+========================================================================
 Ian Zurutuza - Aug 22, 2019
 
-1. Load tensorflow-gpu
+Load tensorflow-gpu
+-------------------
+`module load tensorflow/1.10.1-gpu`
 
-    `module load tensorflow/1.10.1-gpu`
+now check that all necessary modules were loaded
+`module list` 
 
-    now check that all necessary modules were loaded
+should output:
 
-    `module list` 
+    1) gcc/8.1.0   
+    2) slurm/16.05.8   
+    3) python/3.6.0   
+    4) cuda/90/toolkit/9.0.176   
+    5) cudnn/7.0/cuda90   
+    6) tensorflow/1.10.1-gpu
 
-    should output:
+Clone this repository
+---------------------
+`git clone https://github.com/ianzur/obj-detect.git`
 
-        1) gcc/8.1.0   
-        2) slurm/16.05.8   
-        3) python/3.6.0   
-        4) cuda/90/toolkit/9.0.176   
-        5) cudnn/7.0/cuda90   
-        6) tensorflow/1.10.1-gpu
+Set up virtual environment
+--------------------------
+To loads the current packages from the system environment use `--system-site-packages`
 
-2. Clone this repository
+`python3 -m venv --system-site-packages venvs/obj_detect`
 
-    `git clone https://github.com/ianzur/obj-detect.git`
+> You shouldn't have to install any dependencies (lots of system packages are already installed) 
+> Just incase I `pip freeze`d my virtual environment. Check for differences with:
 
-3. Set up virtual environment
-
-    To loads the current packages from the system environment use `--system-site-packages`
-
-    `python3 -m venv --system-site-packages venvs/obj_detect`
-    
-    > You shouldn't have to install any dependencies (lots of system packages are already installed) 
-    > Just incase I `pip freeze`d my virtual environment. Check for differences with:
-
-    `pip freeze | diff -s obj-detect/venv_requirements.txt -`
+`pip freeze | diff -s obj-detect/venv_requirements.txt -`
 
 
-4. Set up tensorflow object detection api
+Set up tensorflow object detection api
+--------------------------------------
+Clone tensorflow models
 
-    Clone tensorflow models
-    
-    `git clone https://github.com/tensorflow/models.git`
+`git clone https://github.com/tensorflow/models.git`
 
-    Clone + make pycocotools (not required)
-    ```
-    git clone https://github.com/cocodataset/cocoapi.git
-    cd cocoapi/PythonAPI
-    make
-    cp -r pycocotools <path_to_tensorflow>/models/research/
-    ```
+Clone + make pycocotools (not required)
+```
+git clone https://github.com/cocodataset/cocoapi.git
+cd cocoapi/PythonAPI
+make
+cp -r pycocotools <path_to_tensorflow>/models/research/
+```
 
-    Change directorys
+Change directorys
 
-    `cd <path/to/tensorflow>/models/research`
+`cd <path/to/tensorflow>/models/research`
 
-    "Install" protoc
-    ```
-    wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
-    unzip protobuf.zip
-    ```
-    Then compile .proto files
+"Install" protoc
+```
+wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
+unzip protobuf.zip
+```
+Then compile .proto files
 
-    `./bin/protoc object_detection/protos/*.proto --python_out=.`
+`./bin/protoc object_detection/protos/*.proto --python_out=.`
 
-    :tada::tada::tada: You did it!! :tada::tada::tada:
+:tada::tada::tada: You did it!! :tada::tada::tada:
 
