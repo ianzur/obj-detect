@@ -35,8 +35,7 @@ To loads the current packages from the system environment use `--system-site-pac
 
 
 ## Set up tensorflow object detection api
-Clone tensorflow models
-
+Clone tensorflow models: 
 `git clone https://github.com/tensorflow/models.git`
 
 Clone + make pycocotools (not required)
@@ -44,19 +43,17 @@ Clone + make pycocotools (not required)
 git clone https://github.com/cocodataset/cocoapi.git
 cd cocoapi/PythonAPI
 make
-cp -r pycocotools <path_to_tensorflow>/models/research/
+cp -r pycocotools <path/to/tensorflow>/models/research/
 ```
-
-Change directorys
-`cd <path/to/tensorflow>/models/research`
 
 "Install" protoc
 ```
+# From <<path/to/tensorflow>/models/research>
 wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
 unzip protobuf.zip
 ```
 
-Then compile .proto files
+Then compile .proto files: 
 `./bin/protoc object_detection/protos/*.proto --python_out=.`
 
 :tada::tada::tada: **You did it!!** :tada::tada::tada:
