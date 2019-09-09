@@ -1,4 +1,5 @@
-# Tensorflow object detection api setup for UNT Talon3 HPC
+# Tensorflow object detection api setup\
+# for UNT Talon3 HPC
 
 This guide describes how to set tensorflow object detection api on UNT HPC
 
