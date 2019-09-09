@@ -38,7 +38,7 @@ Load the current packages from the system environment with `--system-site-packag
 Clone tensorflow models: 
 `git clone https://github.com/tensorflow/models.git`
 
-Clone + make pycocotools (not required)
+Clone + make pycocotools (optional)
 ```
 git clone https://github.com/cocodataset/cocoapi.git
 cd cocoapi/PythonAPI
@@ -46,7 +46,7 @@ make
 cp -r pycocotools <path/to/tensorflow>/models/research/
 ```
 
-"Install" protoc compiler
+"Install" protoc
 ```
 # From <<path/to/tensorflow>/models/research>
 wget -O protobuf.zip https://github.com/google/protobuf/releases/download/v3.0.0/protoc-3.0.0-linux-x86_64.zip
@@ -56,10 +56,13 @@ unzip protobuf.zip
 Then compile .proto files: 
 `./bin/protoc object_detection/protos/*.proto --python_out=.`
 
-Finally build and install setup scripts in directories "slim" and "research"
-source your virtual environment first
-`python setup.py build`
+Finally build and install setup scripts in directories "slim" and "research" source your virtual environment first 
+`python setup.py build` 
 `python setup.py install`
 
 :tada::tada::tada: **You did it!!** :tada::tada::tada:
+
+## Test install 
+If you are using tensorflow-gpu you must submit a job to test this (head nodes don't have access to the gpus)
+
 
