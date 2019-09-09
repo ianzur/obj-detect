@@ -1,8 +1,8 @@
-# UNT Talon3 HPC setup for retraining with tensorflow object detection api
+# Tensorflow object detection api setup for UNT Talon3 HPC
 
 This guide describes how to set tensorflow object detection api on UNT HPC
 
-Ian Zurutuza - Aug 22, 2019
+Ian Zurutuza - Sept 9, 2019
 
 
 ## Load tensorflow-gpu
@@ -66,6 +66,7 @@ python setup.py install
 :tada::tada::tada: **You did it!!** :tada::tada::tada:
 
 ## Test install 
-If you are using tensorflow-gpu you must submit a job to test this (head nodes don't have access to the gpus)
+If you are using tensorflow-gpu you must submit a job to test this (head nodes don't have access to the gpus)  
+The `obj-detect/test_install/` has a sample job script to submit 
 
 
