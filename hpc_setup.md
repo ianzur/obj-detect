@@ -56,9 +56,12 @@ unzip protobuf.zip
 Then compile .proto files: 
 `./bin/protoc object_detection/protos/*.proto --python_out=.`
 
-Finally build and install setup scripts in directories "slim" and "research" source your virtual environment first 
-`python setup.py build` 
-`python setup.py install`
+Finally build and install setup scripts in directories "slim" and "research" 
+Source your virtual environment first 
+```
+python setup.py build 
+python setup.py install
+```
 
 :tada::tada::tada: **You did it!!** :tada::tada::tada:
 
