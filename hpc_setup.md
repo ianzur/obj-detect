@@ -28,7 +28,7 @@ Load the current packages from the system environment with `--system-site-packag
 
 `python3 -m venv --system-site-packages venvs/obj_detect`
 
-> You shouldn't have to install any dependencies (lots of system packages are already installed) 
+> You shouldn't have to install any dependencies (lots of system packages are already installed)\
 > Just incase I `pip freeze`d my virtual environment. Check for differences with:
 
 `pip freeze | diff -s obj-detect/venv_requirements.txt -`
@@ -56,7 +56,7 @@ unzip protobuf.zip
 Then compile .proto files: 
 `./bin/protoc object_detection/protos/*.proto --python_out=.`
 
-Finally build and install setup scripts in directories "slim" and "research"  
+Finally build and install setup scripts in directories "slim" and "research"\
 Source your virtual environment first 
 ```
 python setup.py build 
@@ -66,7 +66,7 @@ python setup.py install
 :tada::tada::tada: **You did it!!** :tada::tada::tada:
 
 ## Test install 
-If you are using tensorflow-gpu you must submit a job to test this (head nodes don't have access to the gpus)  
+If you are using tensorflow-gpu you must submit a job to test this (head nodes don't have access to the gpus)\
 The `obj-detect/test_install/` has a sample job script to submit 
 
 
